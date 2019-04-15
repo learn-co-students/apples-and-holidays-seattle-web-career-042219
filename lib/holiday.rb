@@ -86,10 +86,10 @@ def all_supplies_in_holidays(holiday_hash)
     list.each do |holiday, items|
       holiday = "#{holiday}: "
       holiday = holiday.gsub("_", " ")
-      holiday = "  #{holiday.split.collect(& :capitalize).join(" ")}"
+      holiday = "  #{holiday.split.collect{|title| title.capitalize}.join(" ")}"
       item_list = []
-        items.each do |item|
-          item_list << item
+      items.each do |item|
+        item_list << item
       end
       puts holiday + " #{item_list.join ", "}"
     end
